@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookLink - Login</title>
+  <link rel="stylesheet" href="cook.css">
+</head>
+<body>
+  <div class="background-image">
+    <div class="login-box">
+      <!-- Logo -->
+      <div class="logo-section">
+        <h1 class="logo-title">
+          <span class="logo-icon">🍳</span> CookLink
+        </h1>
+      </div>
+
+      <!-- Login Section -->
+      <h2>Log in</h2>
+      <form id="login-form">
+        <input type="text" class="input-field" placeholder="Username" required>
+        <input type="password" class="input-field" placeholder="Password" required>
+        <button class="login-btn email-login">Log in with Email</button>
+        <button class="login-btn facebook-login">Log in with Facebook</button>
+        <button class="login-btn google-login">Log in with Google</button>
+      </form>
+
+      <!-- Sign Up Link -->
+      <p class="signup">
+        Don't have an account? <a href="#">Join now</a>
+      </p>
+    </div>
+  </div>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      
+      if (username === "" || password === "") {
+        alert("Please fill in all fields.");
+        return;
+      }
+      
+      alert("Login successful for " + username);
+    });
+  </script>
+</body>
+</html>
+
