@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODLINK</title>
+    <style>
+        /* Set up the body to fill the full height and center the content */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\pics\\brooke-lark-08bOYnH_r_E-unsplash.jpg");
+            background-size: cover; /* Cover the whole page */
+            background-position: center center; /* Position the image at the center */
+            background-attachment: fixed; /* Make the background fixed */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container to center the form in the viewport */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+        }
+
+        /* Form styling for light mode */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            background-color: #fff; /* White background for light mode */
+            color: #333; /* Dark text */
+            border: 1px solid #ccc; /* Light border color */
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            color: #00bfff; /* Title color */
+        }
+
+        .title::before, .title::after {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: #00bfff; /* Title color for circles */
+        }
+
+        .title::after {
+            animation: pulse 1s linear infinite;
+        }
+
+        .message, 
+        .signin {
+            font-size: 14.5px;
+            color: rgba(0, 0, 0, 0.7); /* Darker text for message */
+        }
+
+        .signin {
+            text-align: center;
+        }
+
+        .signin a:hover {
+            text-decoration: underline royalblue;
+        }
+
+        .signin a {
+            color: #00bfff; /* Signin link color */
+        }
+
+        /* Flex styling for first and last name fields */
+        .flex {
+            display: flex;
+            width: 100%;
+            gap: 6px;
+        }
+
+        .username {
+            display: flex;
+            width: 100%;
+            gap: 6px; /* Adjusted to match flex for other fields */
+        }
+
+        .form label {
+            position: relative;
+        }
+
+        .form label .input {
+            background-color: #f9f9f9; /* Light input background */
+            color: #333; /* Dark input text */
+            width: 100%;
+            padding: 20px 5px 5px 10px;
+            outline: 0;
+            border: 1px solid #ccc; /* Light input border */
+            border-radius: 10px;
+        }
+
+        .form label .input + span {
+            color: rgba(0, 0, 0, 0.5); /* Darker label color */
+            position: absolute;
+            left: 10px;
+            top: 0px;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+
+        .form label .input:placeholder-shown + span {
+            top: 12.5px;
+            font-size: 0.9em;
+        }
+
+        .form label .input:focus + span,
+        .form label .input:valid + span {
+            color: #00bfff; /* Focused label color */
+            top: 0px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .input {
+            font-size: medium;
+        }
+
+        .submit {
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transform: .3s ease;
+            background-color: #00bfff; /* Button color */
+        }
+
+        .submit:hover {
+            background-color: #00bfff96;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            from {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+
+            to {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form">
+            <p class="title">Register</p>
+            <p class="message">Signup now and get full access to our app.</p>
+            
+            <div class="username">
+                <label>
+                    <input class="input" type="text" placeholder="" required="">
+                    <span>Username</span>
+                </label>
+            </div>
+            
+            <div class="flex">
+                <label>
+                    <input class="input" type="text" placeholder="" required="">
+                    <span>Firstname</span>
+                </label>
+
+                <label>
+                    <input class="input" type="text" placeholder="" required="">
+                    <span>Lastname</span>
+                </label>
+            </div>
+
+            <label>
+                <input class="input" type="email" placeholder="" required="">
+                <span>Email</span>
+            </label>
+
+            <label>
+                <input class="input" type="password" placeholder="" required="">
+                <span>Password</span>
+            </label>
+
+            <label>
+                <input class="input" type="password" placeholder="" required="">
+                <span>Confirm password</span>
+            </label>
+
+            <button type="submit" class="submit">Submit</button>
+
+            <p class="signin">Already have an account? <a href="#">Signin</a></p>
+        </form>
+    </div>
+</body>
+</html>

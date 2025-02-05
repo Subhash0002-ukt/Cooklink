@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us - CookLink</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, #56ccf2, #2f80ed); /* Blue gradient */
+            color: white;
+            animation: fadeInHero 1s ease-in-out forwards;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            animation: fadeInHeading 1s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 650px;
+            margin: 20px auto;
+            opacity: 0;
+            animation: fadeInParagraph 1s ease-in-out 1.5s forwards;
+        }
+
+        @keyframes fadeInHero {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInHeading {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInParagraph {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            padding: 50px 20px;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        footer a {
+            color: #2f80ed;
+            text-decoration: none;
+        }
+
+        .paracol {
+            color: #333;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Animations for section visibility */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSection 1s ease-out forwards;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card styles */
+        .card {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            font-size: 1.8rem;
+            color: #2f80ed;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+        }
+
+        /* Image and animation styling */
+        .image-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.05);
+            
+        }
+
+        .image-section div {
+            width: 30%;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>CookLink</strong></li>
+        </ul>
+        <ul>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html" role="button">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Welcome to CookLink</h1>
+        <p class="paracol">Welcome to CookLink, the ultimate recipe-sharing platform! Here, food lovers can share their favorite recipes, explore new dishes, and watch step-by-step cooking guides. Join our community of passionate cooks, discover amazing flavors, and make cooking more enjoyable. Share, learn, and cook with CookLink!</p>
+    </header>
+
+    <!-- Image Section under Header -->
+    <section class="image-section">
+        <div class="fade-in">
+            <img src="C:\Users\NANI ROCKY\Documents\WT\PROJECT\about pics\bowl-traditional-chicken-curry-nachos-isolated_220507-20660.png" alt="Food Image 1">
+           
+        </div>
+        <div class="fade-in">
+            <img src="C:\Users\NANI ROCKY\Documents\WT\PROJECT\about pics\burger_1339-1572.avif" alt="Food Image 2">
+            
+        </div>
+        <div class="fade-in">
+            <img src="C:\Users\NANI ROCKY\Documents\WT\PROJECT\about pics\indian-cuisine-mattar-paneer-food_55610-2260.avif" alt="Food Image 3">
+         
+        </div>
+        </section>
+        <section class="image-section">
+        <div class="fade-in">
+            <img src="C:\Users\NANI ROCKY\Documents\WT\PROJECT\about pics\Download diwali sweets with white background high quality for free.jpg" alt="Food Image 1">
+           
+        </div>
+        <div class="fade-in">
+            <img src="C:\Users\NANI ROCKY\Documents\WT\PROJECT\about pics\74eedc15786611c4a5f18fddb1728580.jpg">
+            
+        </div>
+        <div class="fade-in">
+            <img src="C:\Users\NANI ROCKY\Documents\WT\PROJECT\about pics\tagliatelle-pasta-with-tomatoes-chicken_2829-18003.avif" alt="Food Image 3">
+         
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Who We Are Section -->
+        <section id="who-we-are" class="fade-in">
+            <div class="card">
+                <h2 class="card-header">Who We Are</h2>
+                <p class="card-content">We are a group of culinary enthusiasts who believe that cooking is more than just a task — it’s a passion. At CookLink, we aim to bring together food lovers from all walks of life to share, learn, and grow together in the kitchen. Whether you're a seasoned chef or a home cook, our goal is to provide a platform that connects people through the love of food.</p>
+            </div>
+        </section>
+
+        <!-- About Recipes Section -->
+        <section id="about-recipes" class="fade-in">
+            <div class="card">
+                <h2 class="card-header">About Recipes</h2>
+                <p class="card-content">Our platform is home to a wide variety of recipes — from simple, everyday meals to intricate gourmet dishes. We believe that anyone, regardless of skill level, should be able to explore and enjoy cooking. Every recipe comes with clear instructions, ingredients, and helpful tips to make cooking easier and more enjoyable.</p>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="fade-in">
+            <div class="card">
+                <h2 class="card-header">The Community</h2>
+                <p class="card-content">CookLink is not just about recipes; it’s about the people who share them. Our community is made up of home cooks, professional chefs, and everyone in between. We encourage interaction, sharing, and feedback to create a welcoming and supportive environment for all.</p>
+            </div>
+        </section>
+
+        <!-- Editorial Guidelines Section -->
+        <section id="editorial-guidelines" class="fade-in">
+            <div class="card">
+                <h2 class="card-header">Editorial Guidelines</h2>
+                <p class="card-content">Our editorial guidelines are designed to maintain the integrity and quality of the content shared on CookLink. We encourage all users to be respectful, provide accurate recipe instructions, and give credit where it’s due. We aim to create a platform that is both creative and reliable for all food lovers.</p>
+            </div>
+        </section>
+
+        <!-- Community Guidelines Section -->
+        <section id="community-guidelines" class="fade-in">
+            <div class="card">
+                <h2 class="card-header">Community Guidelines</h2>
+                <p class="card-content">CookLink's community guidelines are meant to foster a positive and inclusive environment. We encourage users to share their cooking experiences, help others with tips, and create a friendly atmosphere. Harassment, inappropriate content, and negativity will not be tolerated.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small><a href="C:\Users\NANI ROCKY\Documents\WT\PROJECT\privacypolicy.html">Privacy Policy</a> • <a href="C:\Users\NANI ROCKY\Documents\WT\PROJECT\termsofservice.html">Terms of Service</a></small>
+    </footer>
+
+    <script>
+        // Add animation on scroll
+        document.addEventListener("scroll", function() {
+            const fadeElements = document.querySelectorAll(".fade-in");
+            fadeElements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+                if (position < screenHeight * 0.85) {
+                    element.classList.add("visible");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
