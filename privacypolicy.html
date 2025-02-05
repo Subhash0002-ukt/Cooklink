@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6A11CB, #2575FC);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Title */
+        .heading {
+            font-size: 30px;
+            font-weight: bold;
+            color: #2575FC;
+            margin-bottom: 20px;
+        }
+
+        /* Introduction Text */
+        .intro-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6A11CB;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* Button Styles */
+        .btn-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            transition: background 0.3s ease-in-out;
+            color: white;
+            margin: 0 5px;
+        }
+
+        .accept-btn {
+            background: #6A11CB;
+        }
+
+        .accept-btn:hover {
+            background: #5011A3;
+        }
+
+        .about-btn {
+            background: #2575FC;
+        }
+
+        .about-btn:hover {
+            background: #1E5FCC;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">Privacy Policy</h2>
+        <p class="intro-text">Your privacy matters to us. Learn how we collect, use, and protect your personal information.</p>
+        
+        <!-- Privacy Policy Cards -->
+        <div class="card">
+            <div class="card-title">1. Information We Collect</div>
+            <div class="card-text">We collect personal data such as your name, email, and website usage statistics to enhance our services.</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">2. How We Use Your Data</div>
+            <div class="card-text">Your information is used to personalize your experience, improve security, and offer better services.</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">3. Data Protection</div>
+            <div class="card-text">We use encryption and secure protocols to ensure your data remains protected and confidential.</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">4. Sharing Information</div>
+            <div class="card-text">We do not sell or share your personal information with third parties without your explicit consent.</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">5. Cookies & Tracking</div>
+            <div class="card-text">We use cookies to enhance your experience and analyze website traffic. You can disable cookies anytime in settings.</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">6. Your Rights</div>
+            <div class="card-text">You have the right to access, modify, or delete your personal data at any time.</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">7. Policy Updates</div>
+            <div class="card-text">We may update this privacy policy periodically. Continued use of the site implies acceptance of any changes.</div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-container">
+            <button class="btn accept-btn" onclick="acceptPolicy()">Accept & Continue</button>
+            <button class="btn about-btn" onclick="redirectToAbout()">About Us</button>
+        </div>
+    </div>
+
+    <script>
+        function acceptPolicy() {
+            alert("You have accepted the Privacy Policy.");
+            window.location.href = "C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\aboutus.html"; // Redirect after agreement
+        }
+
+        function redirectToAbout() {
+            window.location.href = "C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\aboutus.html"; // Redirect to About Us page
+        }
+    </script>
+</body>
+</html>

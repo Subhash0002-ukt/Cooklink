@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6A11CB, #2575FC);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+
+        /* Scrollable Container */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: black;
+            overflow-y: auto;
+        }
+
+        /* Stylish Heading */
+        .heading {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, #2575FC, #6A11CB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        /* Intro Text */
+        .intro-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Accordion */
+        .accordion-item {
+            margin-top: 10px;
+            border-bottom: 1px solid #ddd;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            width: 100%;
+            text-align: left;
+            padding: 12px;
+            font-size: 16px;
+            background: #2575FC;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .accordion-button:hover {
+            background: #1E5FCC;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 10px;
+            font-size: 14px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+
+        .accordion-content p {
+            margin: 10px 0;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            color: white;
+            margin: 0 5px;
+        }
+
+        .agree-btn {
+            background: #6A11CB;
+        }
+
+        .agree-btn:hover {
+            background: #5011A3;
+        }
+
+        .about-btn {
+            background: #2575FC;
+        }
+
+        .about-btn:hover {
+            background: #1E5FCC;
+        }
+
+        /* Ensure Scrolling Works */
+        .scrollable {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container scrollable">
+        <h2 class="heading">Terms of Service</h2>
+        <p class="intro-text">By using this website, you agree to our terms and conditions. Please read carefully before proceeding.</p>
+        
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-button">1. User Responsibilities</button>
+                <div class="accordion-content">
+                    <p>Users must follow all applicable laws, respect other users, and not misuse the website.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">2. Prohibited Activities</button>
+                <div class="accordion-content">
+                    <p>Users are prohibited from spamming, hacking, posting harmful content, or violating copyrights.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">3. Account Termination</button>
+                <div class="accordion-content">
+                    <p>We reserve the right to suspend or terminate accounts that violate our policies.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">4. Disclaimer of Warranties</button>
+                <div class="accordion-content">
+                    <p>We do not guarantee that the service will be uninterrupted or error-free.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">5. Limitation of Liability</button>
+                <div class="accordion-content">
+                    <p>We are not responsible for any damages resulting from the use of this website.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">6. Data Privacy & Security</button>
+                <div class="accordion-content">
+                    <p>Your personal data is handled securely. We do not share information with third parties without consent.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">7. Changes to Terms</button>
+                <div class="accordion-content">
+                    <p>We may update these terms, and continued use of the website constitutes acceptance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn agree-btn" onclick="agreeTerms()">Agree & Proceed</button>
+            <button class="btn about-btn" onclick="redirectToAbout()">About Us</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const accordions = document.querySelectorAll(".accordion-button");
+
+            accordions.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const content = this.nextElementSibling;
+
+                    // Toggle accordion content
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        content.style.padding = "0 10px";
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.style.padding = "10px";
+                    }
+                });
+            });
+        });
+
+        function agreeTerms() {
+            alert("You have agreed to the Terms of Service.");
+            window.location.href = "C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\aboutus.html"; // Redirect after agreement
+        }
+
+        function redirectToAbout() {
+            window.location.href = "C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\aboutus.html"; // Redirect to About Us page
+        }
+    </script>
+</body>
+</html>
