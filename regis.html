@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url("C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\pics\\brooke-lark-08bOYnH_r_E-unsplash.jpg");
+            background-image: url("img/registerimage.jpg");
             background-size: cover; /* Cover the whole page */
             background-position: center center; /* Position the image at the center */
             background-attachment: fixed; /* Make the background fixed */
@@ -172,48 +172,82 @@
 </head>
 <body>
     <div class="container">
-        <form class="form">
+        <form class="form" id="signupForm">
             <p class="title">Register</p>
-            <p class="message">Signup now and get full access to our app.</p>
+            <p class="message">Signup now and get full access to our website.</p>
             
             <div class="username">
                 <label>
-                    <input class="input" type="text" placeholder="" required="">
+                    <input class="input" type="text" id="username"  required="">
                     <span>Username</span>
                 </label>
             </div>
             
             <div class="flex">
                 <label>
-                    <input class="input" type="text" placeholder="" required="">
+                    <input class="input" type="text" id="firstName"  required="">
                     <span>Firstname</span>
                 </label>
 
                 <label>
-                    <input class="input" type="text" placeholder="" required="">
+                    <input class="input" type="text" id="lastName"  required="">
                     <span>Lastname</span>
                 </label>
             </div>
 
             <label>
-                <input class="input" type="email" placeholder="" required="">
+                <input class="input" type="email" id="email"  required="">
                 <span>Email</span>
             </label>
 
             <label>
-                <input class="input" type="password" placeholder="" required="">
+                <input class="input" type="password" id="password"  required="">
                 <span>Password</span>
             </label>
 
             <label>
-                <input class="input" type="password" placeholder="" required="">
+                <input class="input" type="password"  required="">
                 <span>Confirm password</span>
             </label>
 
             <button type="submit" class="submit">Submit</button>
 
-            <p class="signin">Already have an account? <a href="#">Signin</a></p>
+            <p class="signin">Already have an account? <a href="login.html">Signin</a></p>
         </form>
     </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/users/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, firstName, lastName, email, password })
+                });
+
+                const data = await response.json();
+                console.log('Response data:', data); // Add this line to log the response data
+                if (response.ok) {
+                    alert('User registered successfully');
+                    window.location.href='./login.html'
+                } else {
+                    alert(data.error || 'An error occurred. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
