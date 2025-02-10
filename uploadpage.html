@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="""en"></html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="""UTF-8">
+    <meta name="viewport" content="""width=device-width, initial-scale=1.0">
     <title>Upload Recipe</title>
     <style>
         body {
-            background-image: url("C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\pics\\pexels-ella-olsson-572949-1640774.jpg");
+            background-image: url("./img/uploadback.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -213,12 +213,14 @@
             font-weight: bold;
             text-align: center;
         }
+
     </style>
 </head>
 <body>
+    
     <div class="form-container">
-        <form id="recipe-form">
-            <p class="heading">Upload your Recipe here</p>
+        <p class="heading">Upload your Recipe here</p>
+        <form id="uploadForm" enctype="multipart/form-data">
             <div class="mb-4">
                 <label for="recipe-name">Recipe Name</label>
                 <input id="recipe-name" type="text" placeholder="Enter recipe name" required />
@@ -247,30 +249,21 @@
                 <label for="note">Note (Optional)</label>
                 <textarea id="note" rows="2" placeholder="Any additional tips or notes"></textarea>
             </div>
-            <div class="container">
-                <div class="folder">
-                  <div class="front-side">
-                    <div class="tip"></div>
-                    <div class="cover"></div>
-                  </div>
-                  <div class="back-side cover"></div>
-                </div>
-                <label class="custom-file-upload">
-                  <input class="title" type="file" multiple onchange="displayFileNames()" />
-                  Choose files
-                </label>
-              </div>
-
+            <div class="mb-4">
+                <label for="image">Image</label>
+                <input id="image" type="file" required />
+            </div>
             <div class="file-list" id="file-list">
                 <!-- File names will be displayed here -->
             </div>
-
             <div>
                 <button type="submit">Post</button>
             </div>
         </form>
+        <!-- Back to Home Button -->
+        
     </div>
-
+    
     <script>
         function displayFileNames() {
             const fileInput = document.querySelector('input[type="file"]');
@@ -284,6 +277,39 @@
                 fileList.appendChild(fileName);
             });
         }
+
+        document.getElementById('image').addEventListener('change', displayFileNames);
+
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append('title', document.getElementById('recipe-name').value);
+            formData.append('image', document.getElementById('image').files[0]);
+            formData.append('description', document.getElementById('directions').value);
+            formData.append('prepTime', document.getElementById('prep-time').value);
+            formData.append('cookTime', document.getElementById('cook-time').value);
+            formData.append('totalTime', document.getElementById('total-time').value);
+            formData.append('note', document.getElementById('note').value);
+            formData.append('ingredients', document.getElementById('ingredients').value);
+
+            try {
+                const response = await fetch('http://localhost:5000/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Recipe uploaded successfully');
+                } else {
+                    alert('Failed to upload recipe: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to upload recipe');
+            }
+        });
     </script>
 </body>
 </html>
