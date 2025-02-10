@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Recipe</title>
+    <style>
+        body {
+            background-image: url("C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\pics\\pexels-ella-olsson-572949-1640774.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+            width: 90vw;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .mb-4 {
+            margin-bottom: 0.8rem;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #1e3a8a;
+            transform: scale(1.02);
+        }
+
+        .container {
+            --transition: 350ms;
+            --folder-W: 80px;
+            --folder-H: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            height: calc(var(--folder-H) * 1.7);
+            position: relative;
+        }
+
+        .folder {
+            position: absolute;
+            top: -10px;
+            left: calc(50% - 40px);
+            animation: float 2.5s infinite ease-in-out;
+            transition: transform var(--transition) ease;
+        }
+
+        .folder:hover {
+            transform: scale(1.05);
+        }
+
+        .folder .front-side,
+        .folder .back-side {
+            position: absolute;
+            transition: transform var(--transition);
+            transform-origin: bottom center;
+        }
+
+        .folder .back-side::before,
+        .folder .back-side::after {
+            content: "";
+            display: block;
+            background-color: white;
+            opacity: 0.5;
+            z-index: 0;
+            width: var(--folder-W);
+            height: var(--folder-H);
+            position: absolute;
+            transform-origin: bottom center;
+            border-radius: 10px;
+            transition: transform 350ms;
+            z-index: 0;
+        }
+
+        .container:hover .back-side::before {
+            transform: rotateX(-5deg) skewX(5deg);
+        }
+        .container:hover .back-side::after {
+            transform: rotateX(-15deg) skewX(12deg);
+        }
+
+        .folder .front-side {
+            z-index: 1;
+        }
+
+        .container:hover .front-side {
+            transform: rotateX(-40deg) skewX(15deg);
+        }
+
+        .folder .tip {
+            background: linear-gradient(135deg, #ff9a56, #ff6f56);
+            width: 50px;
+            height: 12px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: -5px;
+            z-index: 2;
+        }
+
+        .folder .cover {
+            background: linear-gradient(135deg, #ffe563, #ffc663);
+            width: var(--folder-W);
+            height: var(--folder-H);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .custom-file-upload {
+            font-size: 1em;
+            color: #ffffff;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background var(--transition) ease;
+            display: inline-block;
+            width: 100%;
+            padding: 8px 25px;
+            position: relative;
+        }
+
+        .custom-file-upload:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .custom-file-upload input[type="file"] {
+            display: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .file-list {
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .file-list p {
+            margin: 5px 0;
+        }
+
+        .file-upload {
+            margin-top: 10px;
+        }
+
+        .heading {
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="recipe-form">
+            <p class="heading">Upload your Recipe here</p>
+            <div class="mb-4">
+                <label for="recipe-name">Recipe Name</label>
+                <input id="recipe-name" type="text" placeholder="Enter recipe name" required />
+            </div>
+            <div class="mb-4">
+                <label for="ingredients">Ingredients</label>
+                <textarea id="ingredients" rows="3" placeholder="List ingredients, separated by commas"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="directions">Directions</label>
+                <textarea id="directions" rows="3" placeholder="Enter step-by-step cooking directions"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="prep-time">Preparation Time (minutes)</label>
+                <input id="prep-time" type="number" placeholder="Enter preparation time" required />
+            </div>
+            <div class="mb-4">
+                <label for="cook-time">Cook Time (minutes)</label>
+                <input id="cook-time" type="number" placeholder="Enter cook time" required />
+            </div>
+            <div class="mb-4">
+                <label for="total-time">Total Time (minutes)</label>
+                <input id="total-time" type="number" placeholder="Enter total time" required />
+            </div>
+            <div class="mb-4">
+                <label for="note">Note (Optional)</label>
+                <textarea id="note" rows="2" placeholder="Any additional tips or notes"></textarea>
+            </div>
+            <div class="container">
+                <div class="folder">
+                  <div class="front-side">
+                    <div class="tip"></div>
+                    <div class="cover"></div>
+                  </div>
+                  <div class="back-side cover"></div>
+                </div>
+                <label class="custom-file-upload">
+                  <input class="title" type="file" multiple onchange="displayFileNames()" />
+                  Choose files
+                </label>
+              </div>
+
+            <div class="file-list" id="file-list">
+                <!-- File names will be displayed here -->
+            </div>
+
+            <div>
+                <button type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function displayFileNames() {
+            const fileInput = document.querySelector('input[type="file"]');
+            const fileList = document.getElementById('file-list');
+            fileList.innerHTML = '';  // Clear the file list before displaying the new ones
+
+            // Display the names of the uploaded files
+            Array.from(fileInput.files).forEach(file => {
+                const fileName = document.createElement('p');
+                fileName.textContent = file.name;
+                fileList.appendChild(fileName);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us - CookLink</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            background-color: #e0f2f1; /* Light Teal */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        .hero h1 {
+    font-size: 3rem;
+    background-color: blue;
+    opacity: 1;  /* Ensuring it stays visible */
+    animation: fadeInHeading 1s ease-in-out forwards;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 650px;
+    margin: 20px auto;
+    color: black;
+    opacity: 1;  /* Ensuring it stays visible */
+    animation: fadeInParagraph 1s ease-in-out 1.5s forwards;
+}
+
+@keyframes fadeInHeading {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInParagraph {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+        .container {
+            padding: 50px 20px;
+        }
+
+        .contact-form {
+            background-color: #ffffff; /* White Card */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            animation: fadeInSection 1s ease-out forwards;
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            color: #0a9396;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus, 
+        .contact-form select:focus, 
+        .contact-form textarea:focus {
+            border: 1px solid #ee9b00;
+            box-shadow: 0px 4px 8px rgba(238, 155, 0, 0.3);
+            transform: scale(1.02);
+        }
+
+        .contact-form button {
+            background-color: #ee9b00; /* Soft Orange */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: block;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #ca6702;
+            transform: scale(1.05);
+        }
+
+        /* Success Message Styling */
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #0f9d58;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: bold;
+            animation: fadeInSuccess 0.5s ease-in-out;
+        }
+
+        @keyframes fadeInSuccess {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Back to Home Button */
+        .back-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-home button {
+            background-color: #0a9396;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .back-home button:hover {
+            background-color: #005f73;
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Contact Us</h1>
+        <p>Have questions, feedback, or a recipe suggestion? Get in touch with us!</p>
+    </header>
+
+    <main class="container">
+        <section id="contact-form" class="fade-in">
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form id="contactForm">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="inquiry-type">Type of Inquiry</label>
+                    <select id="inquiry-type" name="inquiry-type">
+                        <option value="general">General Question</option>
+                        <option value="recipe">Recipe Submission</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="description">Message</label>
+                    <textarea id="description" name="description" placeholder="Type your message here..." required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+                
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message">Submitted ✅</div>
+            </div>
+        </section>
+
+        <!-- Back to Home Button -->
+        <div class="back-home">
+            <button onclick="window.location.href='aboutus.html'">Back to Home Page</button>
+        </div>
+    </main>
+
+    <script>
+        // Form Submission Event
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from actually submitting
+
+            // Show success message
+            const successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 3000);
+
+            // Reset form fields
+            document.getElementById("contactForm").reset();
+        });
+    </script>
+
+</body>
+</html>
