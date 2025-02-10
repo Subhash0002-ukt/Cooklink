@@ -16,6 +16,26 @@
             flex-direction: column;
             align-items: center;
         }
+        .back-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-home button {
+            background-color: #0a9396;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .back-home button:hover {
+            background-color: #005f73;
+            transform: scale(1.08);
+        }
         .navbar {
             width: 100%;
             background: linear-gradient(90deg, #ff7e5f, #feb47b);
@@ -357,7 +377,73 @@
             <div id="nutrition-info" class="box"></div>
         </div>
     </div>
+    <div class="back-home">
+        <button onclick="window.location.href='index.html'">Back to Home</button>
+</div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+
+            if (query) {
+                fetchSearchResults(query);
+            }
+
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const query = document.getElementById('searchInput').value;
+                if (query) {
+                    window.location.href = `navbar.html?query=${query}`;
+                }
+            });
+        });
+
+        async function fetchSearchResults(query) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/search?query=${query}`);
+                const data = await response.json();
+                if (response.ok) {
+                    displaySearchResults(data);
+                } else {
+                    alert('Failed to retrieve search results: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to retrieve search results');
+            }
+        }
+
+        function displaySearchResults(results) {
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';  // Clear previous results
+
+            if (results.length > 0) {
+                results.forEach(recipe => {
+                    const recipeDiv = document.createElement('div');
+                    recipeDiv.className = 'recipe';
+
+                    const title = document.createElement('h3');
+                    title.className = 'recipe-title';
+                    title.textContent = recipe.title;
+
+                    const image = document.createElement('img');
+                    image.src = `/uploads/${recipe.image}`;
+                    image.alt = recipe.title;
+
+                    const description = document.createElement('p');
+                    description.textContent = recipe.description;
+
+                    recipeDiv.appendChild(title);
+                    recipeDiv.appendChild(image);
+                    recipeDiv.appendChild(description);
+
+                    searchResults.appendChild(recipeDiv);
+                });
+            } else {
+                searchResults.textContent = 'No results found';
+            }
+        }
+    </script>
     <script>
         function showRecipe(title, ingredients, steps, nutrition) {
     const recipeDetails = document.getElementById("recipe");
@@ -386,7 +472,6 @@
 }
 // Auto-scroll function
 // Auto-scroll function
-
 
 // Trigger the auto-scroll function when the page loads
 window.onload = function() {
