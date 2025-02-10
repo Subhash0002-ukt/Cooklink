@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CookLink</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .search {
+          display: inline-block;
+          position: relative;
+        }
+    
+        .search input[type="text"] {
+          align-self: flex-start;
+          width: 150px;
+          padding: 10px;
+          border: none;
+          border-radius: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .search button[type="submit"] {
+          background-color: #4e99e9;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          padding: 10px 20px;
+          border-radius: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          position: absolute;
+          top: 0;
+          right: 0;
+          transition: .9s ease;
+        }
+    
+        .search button[type="submit"]:hover {
+          transform: scale(1.1);
+          color: #fff;
+          background-color: #00f;
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+        .search-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .search-results li {
+            background: #f3f4f6;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        }
+      </style>
+   
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>CookLink</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about2.html" class="nav-item nav-link">About Us</a>
+                    <a href="navbar.html" class="nav-item nav-link">Category</a>
+                    <a href="login.html" class="nav-item nav-link" id="loginLink">Login</a>
+                    <a href="contactus.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <div class="search">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button type="submit" id="searchButton">Go</button>
+                  </div>
+                <div class="flex items-center justify-center p-5">
+                    
+                <a href="upload.html" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Upload Your Recipes<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- navbar end-->
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="./img/d1.jpeg" alt="hello">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">The Best Cooking Recipe Site</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2"></p>
+                                    <a href="login.html" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Explore More</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="./img/d5.jpeg" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Try something New </h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2"></p>
+                                    <a href="Category.html" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Explore More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Recipe Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">CookLink</h1>
+                    <p><b>Cooklink is a recipe-sharing platform where users can discover, share, and explore a variety of delicious cooking ideas.</b></p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="facility-item">
+                            <div class="facility-text bg-primary" style="background: url('./img/recipe4.avif') no-repeat center center/cover;">
+                                <h3 class="text-primary mb-3">Dosa</h3>
+                                <p class="mb-0">Dosa is a crispy, thin pancake made from fermented rice and lentil batter, often served with chutneys and sambar..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="facility-item">
+                            <div class="facility-text bg-success" style="background: url('./img/recipe3.avif') no-repeat center center/cover;">
+                                <h3 class="text-success mb-3" >Vadapaav </h3>
+                                <p class="mb-0">Vada Pav is a spicy potato fritter in a soft bun, served with chutneys.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="facility-item">
+                            <div class="facility-text bg-warning"  style="background: url('./img/recipe2.jpg') no-repeat center center/cover;">
+                                <h3 class="text-warning mb-3">Desserts</h3>
+                                <p class="mb-0">Dessert is a sweet treat served after meals, like cakes, ice creams, or pastries.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="facility-item">
+                            <div class="facility-text bg-info" style="background: url('./img/recipe1.avif') no-repeat center center/cover;">
+                                <h3 class="text-info mb-3">Rasamalai</h3>
+                                <p class="mb-0">Rasamalai is a soft, spongy milk dumpling soaked in sweet, flavored milk.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Facilities End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="mb-4">Learn More About Our Work</h1>
+                        <p>Cooklink is an innovative recipe-sharing platform that brings together food enthusiasts from around the world. It allows users to discover, share, and save unique recipes, providing a space for culinary creativity and inspiration. Whether you're a novice cook or an experienced chef, Cooklink offers a community-driven environment where recipes are exchanged, tried, and tested, making it easier for everyone to explore diverse cuisines and cooking techniques. With an easy-to-use interface, Cooklink helps users to not only showcase their culinary skills but also connect with others who share a passion for food.</p>
+
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary rounded-pill py-3 px-5" href="login.html">Login</a>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="./img/d1.jpeg" alt="">
+                            </div>
+                            <div class="col-6 text-start" style="margin-top: -150px;">
+                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="./img/d2.jpeg" alt="">
+                            </div>
+                            <div class="col-6 text-end" style="margin-top: -150px;">
+                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="./img/d3.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Call To Action Start -->
+
+        <!-- Call To Action End -->
+
+
+        <!-- Classes Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Recepies</h1>
+                    <p>These are some of the popular recipees offered by our top notch chefs. Hope you learn and enjoy them for yourselves.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./img/d5.jpeg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Chicken Biryani</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./img/d5.jpeg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">VennelaSri</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Experience:</h6>
+                                            <small>5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./img/d5.jpeg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Biryani</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./img/d5.jpeg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Experience:</h6>
+                                            <small>3Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./img/d5.jpeg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Dum Biryani</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./img/d5.jpeg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Experience</h6>
+                                            <small>4 years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./img/d5.jpeg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Chinese Noodles</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./img/d5.jpeg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Experience</h6>
+                                            <small>3.5Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./img/d5.jpeg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Fry piece Biryani</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./img/d5.jpeg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Experience:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./img/d5.jpeg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Veg Biryani</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./img/d5.jpeg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Experience:</h6>
+                                            <small>3.8 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username');
+            const loginLink = document.getElementById('loginLink');
+
+            if (username) {
+                loginLink.innerHTML = username;
+                loginLink.href = '#'; // Optionally, change the href to point to the user's profile page
+                loginLink.addEventListener('click', function() {
+                    const logoutButton = document.createElement('button');
+                    logoutButton.innerHTML = 'Logout';
+                    logoutButton.className = 'btn btn-danger';
+                    logoutButton.addEventListener('click', function() {
+                        localStorage.removeItem('username');
+                        window.location.reload();
+                    });
+                    loginLink.parentNode.replaceChild(logoutButton,loginLink );
+                });
+            } else {
+                loginLink.innerHTML = 'Login';
+                loginLink.href = 'login.html';
+            }
+
+            // Handle search button click
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const query = document.getElementById('searchInput').value;
+                if (query) {
+                    window.location.href = `navbar.html?query=${query}`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
