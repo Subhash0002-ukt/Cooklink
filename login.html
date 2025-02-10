@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODLINK</title>
     <style>
         body {
-            background-image: url("C:\\Users\\NANI ROCKY\\Documents\\WT\\PROJECT\\pics\\pexels-heftiba-940302.jpg");
+            background-image: url("./img/loginbackground.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -79,19 +82,15 @@
             margin-right: 10px;
         }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOODLINK</title>
-    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="form-container">
         <p class="title">LOGIN HERE</p>
-        <form class="form" action="#" method="POST" onsubmit="return redirectToSuccessPage()">
-            <input type="email" class="input" placeholder="Email" required>
-            <input type="password" class="input" placeholder="Password" required>
+        <form class="form" id="loginForm">
+            <input type="text" id="identifier" class="input" placeholder="Email or Username" required>
+            <input type="password" id="password" class="input" placeholder="Password" required>
             <p class="page-link">
-                <a href="forgot-password.html" class="page-link-label">Forgot Password?</a>
+                <a href="404.html" class="page-link-label">Forgot Password?</a>
             </p>
             <button type="submit" class="form-btn">Log in</button>
         </form>
@@ -118,10 +117,39 @@
     </div>
 
     <script>
-        function redirectToSuccessPage() {
-            window.location.href = "login-success.html";
-            return false; // Prevent form submission to handle redirection
-        }
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const identifier = document.getElementById('identifier').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/users/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ identifier, password })
+                });
+
+                const data = await response.json();
+                console.log('Response data:', data); // Add this line to log the response data
+                if (response.ok) {
+                    // Handle successful login, e.g., store the token and update the UI
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('username', data.username); // Store the username
+
+                    // Redirect to index.html after successful login
+                    window.location.href = 'index.html';
+                } else {
+                    // Handle login error
+                    alert(data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('The entered user details or password is wrong. Please try again.');
+            }
+        });
     </script>
 </body>
 </html>
